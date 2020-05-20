@@ -1,0 +1,23 @@
+{
+	"folders": [
+		{
+			"path": "../ETC"
+		},
+		{
+			"path": "../HOMEWORK"
+		},
+		{
+			"path": "../LECTURE"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../MY PROJECT"
+		},
+		{
+			"path": "../VENV"
+		}
+	],
+	"settings": {}
+}

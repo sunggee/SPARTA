@@ -1,0 +1,28 @@
+/* 태그명을 바로 가리킬 때 */
+* {
+    font-family: 'Black Han Sans', sans-serif;
+}
+
+body {
+    background-color: white;
+    color: black;
+}
+
+/* class를 만들어 가리킬 때 */
+.login {
+    color: white;
+    background-image: url(https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg);
+    background-image: url('https://www.ancient-origins.net/sites/default/files/field/image/Agesilaus-II-cover.jpg');
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.wrap {
+    width: 300px;
+    margin: 50px auto 0 auto;
+
+}
