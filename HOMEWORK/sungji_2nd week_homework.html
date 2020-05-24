@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>Get This Scent!</title>
+
+    <style>
+        * {
+            font-family: 'Nanum Myeongjo', serif;
+        }
+
+        body {
+            background-color: snow;
+        }
+
+        .wrap {
+            width: 620px;
+            margin: 50px auto;
+
+        }
+
+        .image {
+            background-image: url(https://cf.shopee.ph/file/ab7e58e9985eae2ceda686043940e250);
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 300px;
+            color: white;
+            text-align: center;
+            padding-top: 40px;
+            margin: auto;
+        }
+
+        .headline {
+            font-size: 50px;
+            color: lightcoral;
+        }
+
+        .details {
+            font-size: 20px;
+            color: darkblue;
+        }
+
+        .botton-box {
+            margin: auto;
+            width: 100px;
+        }
+    </style>
+
+    <script>
+
+        function check() {
+            if ($('#customer').val() == "") {
+                alert("이름을 입력하세요");
+
+            } else if ($('#quantity').val() == "--수량을 선택하세요--") {
+                alert("수량을 선택하세요");
+
+            } else if ($('#address').val() == "") {
+                alert("주소를 입력하세요");
+
+            } else if ($('#phonenumber').val() == "") {
+                alert("전화번호를 입력하세요");
+
+            } else {
+                alert("주문 완료!");
+            }
+        }
+
+        $(document).ready(function () { currency_rate() });
+        function currency_rate() {
+            $.ajax({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function (response) {
+                    $("#currency").append(response[1]['rate']);
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="wrap">
+        <div class="explanation">
+            <div class="image">
+            </div>
+            <p class="headline">Wear This Scent
+                <span class="details">[가격: 78,000 원]</span>
+            </p>
+
+            <h5 class="details">화려하게 핀 작약에 더해진 붉은 사과의 향기로운 과즙과 순수한 자스민, 장미 그리고 카네이션 향이 담긴 리미티드 에디션 향수를 지금 바로 만나보세요!</h5>
+        </div>
+
+        <div>
+            <p style="color:royalblue">달러-원 환율 : <span id="currency" style="color:royalblue"></span> 원</p>
+
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">주문자 성함</span>
+            </div>
+            <input id="customer" type="text" class="form-control" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label class="input-group-text" for="inputGroupSelect01">수량</label>
+            </div>
+            <select id="quantity" class="custom-select" id="inputGroupSelect01">
+                <option selected>--수량을 선택하세요--</option>;
+                <option value="1">One</option>;
+                <option value="2">Two</option>;
+                <option value="3">Three</option>;
+            </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">주소</span>
+            </div>
+            <input id="address" type="text" class="form-control" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">전화번호</span>
+            </div>
+            <input id="phonenumber" type="text" class="form-control" aria-label="Default"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div class="botton-box">
+            <button onclick="check()" type="button" class="btn btn-primary btncenter">주문하기</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
